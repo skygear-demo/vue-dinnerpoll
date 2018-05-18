@@ -1,4 +1,3 @@
-<script>
 import skygear from 'skygear'
 import randomColor from 'randomcolor'
 import { Bar, mixins } from 'vue-chartjs'
@@ -64,4 +63,3 @@ export default {
     }
   }
 }
-</script>

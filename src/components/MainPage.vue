@@ -22,7 +22,7 @@
 
 <script>
 import skygear from 'skygear'
-import ResultsChart from './ResultsChart'
+import ResultsChart from './ResultsChart.js'
 import Ballot from './Ballot'
 
 export default {
