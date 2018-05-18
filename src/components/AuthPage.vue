@@ -10,7 +10,7 @@
       </b-col>
     </b-row>
 
-    <b-row align-h="center" class="text-center">
+    <b-row align-h="center">
       <b-col cols="6">
         <sign-in-form/>
       </b-col>
