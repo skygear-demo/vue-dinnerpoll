@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
-  </div>
+  <b-container>
+    <b-row align-v="center" style="min-height: 100vh;">
+        <b-col>
+          <auth-page/>
+        </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import AuthPage from './components/AuthPage'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AuthPage
   }
 }
 </script>
