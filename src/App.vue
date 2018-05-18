@@ -7,7 +7,7 @@
           </b-col>
       </b-row>
     </b-container>
-    <main-page v-else/>
+    <main-page v-else @sign-out="signOut"/>
   </div>
 </template>
 
@@ -19,12 +19,15 @@ import MainPage from './components/MainPage'
 export default {
   data () {
     return {
-      signedIn: true || skygear.auth.currentUser
+      signedIn: false || skygear.auth.currentUser
     }
   },
   methods: {
     signIn () {
       this.signedIn = true
+    },
+    signOut () {
+      this.signedIn = false
     }
   },
   components: {
