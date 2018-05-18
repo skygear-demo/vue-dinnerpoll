@@ -11,16 +11,24 @@
         <results-chart @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
       </b-col>
     </b-row>
+
+    <b-row>
+      <b-col>
+        <ballot/>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
 import skygear from 'skygear'
 import ResultsChart from './ResultsChart'
+import Ballot from './Ballot'
 
 export default {
   components: {
-    ResultsChart
+    ResultsChart,
+    Ballot
   },
   methods: {
     signOut () {
