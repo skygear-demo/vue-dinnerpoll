@@ -1,18 +1,18 @@
 <template>
   <b-container class="mt-3">
-    <b-row>
+    <b-row class="mb-3">
       <b-col class="text-right">
         <b-button variant="primary" @click="signOut">Sign out</b-button>
       </b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="mb-3">
       <b-col>
         <results-chart @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
       </b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="mb-3">
       <b-col>
         <ballot/>
       </b-col>
