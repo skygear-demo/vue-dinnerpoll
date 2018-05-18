@@ -33,6 +33,7 @@ export default {
       skygear.auth.loginWithUsername(this.username, this.password)
         .then((user) => {
           console.log(user) // user record
+          this.$emit('sign-in')
         })
         .catch((error) => {
           console.error(error)

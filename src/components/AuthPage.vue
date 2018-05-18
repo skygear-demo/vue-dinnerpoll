@@ -12,7 +12,7 @@
 
     <b-row align-h="center">
       <b-col cols="6">
-        <sign-in-form v-if="signIn" @swap-form="swapForm"/>
+        <sign-in-form v-if="wantSignIn" @swap-form="swapForm" @sign-in="$emit('sign-in')"/>
         <sign-up-form v-else @swap-form="swapForm"/>
       </b-col>
     </b-row>
@@ -26,12 +26,12 @@ import SignUpForm from './SignUpForm'
 export default {
   data () {
     return {
-      signIn: true
+      wantSignIn: true
     }
   },
   methods: {
     swapForm () {
-      this.signIn = !this.signIn
+      this.wantSignIn = !this.wantSignIn
     }
   },
   components: {

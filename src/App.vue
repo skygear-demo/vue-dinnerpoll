@@ -1,31 +1,35 @@
 <template>
-  <b-container>
-    <b-row align-v="center" style="min-height: 100vh;">
-        <b-col>
-          <auth-page/>
-        </b-col>
-    </b-row>
-  </b-container>
+  <div>
+    <b-container v-if="!signedIn">
+      <b-row align-v="center" style="min-height: 100vh;">
+          <b-col>
+            <auth-page @sign-in="signIn"/>
+          </b-col>
+      </b-row>
+    </b-container>
+    <main-page v-else/>
+  </div>
 </template>
 
 <script>
+import skygear from 'skygear'
 import AuthPage from './components/AuthPage'
+import MainPage from './components/MainPage'
 
 export default {
-  name: 'App',
+  data () {
+    return {
+      signedIn: true || skygear.auth.currentUser
+    }
+  },
+  methods: {
+    signIn () {
+      this.signedIn = true
+    }
+  },
   components: {
-    AuthPage
+    AuthPage,
+    MainPage
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
