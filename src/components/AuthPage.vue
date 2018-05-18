@@ -12,7 +12,8 @@
 
     <b-row align-h="center">
       <b-col cols="6">
-        <sign-in-form/>
+        <sign-in-form v-if="signIn" @swap-form="swapForm"/>
+        <sign-up-form v-else @swap-form="swapForm"/>
       </b-col>
     </b-row>
   </b-container>
@@ -20,10 +21,22 @@
 
 <script>
 import SignInForm from './SignInForm'
+import SignUpForm from './SignUpForm'
 
 export default {
+  data () {
+    return {
+      signIn: true
+    }
+  },
+  methods: {
+    swapForm () {
+      this.signIn = !this.signIn
+    }
+  },
   components: {
-    SignInForm
+    SignInForm,
+    SignUpForm
   }
 }
 </script>
