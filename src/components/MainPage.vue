@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="mt-3">
     <b-row>
       <b-col class="text-right">
         <b-button variant="primary" @click="signOut">Sign out</b-button>
@@ -8,7 +8,7 @@
 
     <b-row>
       <b-col>
-        <results-chart/>
+        <results-chart @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
       </b-col>
     </b-row>
   </b-container>
@@ -24,7 +24,11 @@ export default {
   },
   methods: {
     signOut () {
+      this.$emit('async-start')
       skygear.auth.logout()
+        .finally(() => {
+          this.$emit('async-end')
+        })
         .then(() => {
           this.$emit('sign-out')
         })

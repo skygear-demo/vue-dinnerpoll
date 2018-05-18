@@ -38,7 +38,11 @@ export default {
   },
   methods: {
     refresh () {
+      this.$emit('async-start')
       return skygear.lambda('query_polling_results')
+        .finally(() => {
+          this.$emit('async-end')
+        })
         .then(({ results }) => {
           this.chartData = {
             labels: results.map(result => result.dish),

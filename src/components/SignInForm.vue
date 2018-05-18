@@ -30,7 +30,11 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
+      this.$emit('async-start')
       skygear.auth.loginWithUsername(this.username, this.password)
+        .finally(() => {
+          this.$emit('async-end')
+        })
         .then((user) => {
           console.log(user) // user record
           this.$emit('sign-in')
@@ -44,6 +48,8 @@ export default {
             this.invalidFeedback = 'Incorrect username or password'
           } else {
             // other kinds of error
+            this.state = false
+            this.invalidFeedback = error.error.message
           }
         })
     }

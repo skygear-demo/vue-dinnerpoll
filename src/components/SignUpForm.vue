@@ -31,8 +31,12 @@ export default {
     onSubmit (evt) {
       evt.preventDefault()
       skygear.auth.signupWithUsername(this.username, this.password)
+        .finally(() => {
+          this.$emit('async-end')
+        })
         .then((user) => {
           console.log(user) // user record
+          this.$emit('sign-in')
         })
         .catch((error) => {
           console.error(error)
@@ -42,6 +46,8 @@ export default {
             this.invalidFeedback = 'Username has already existed'
           } else {
             // other kinds of error
+            this.state = false
+            this.invalidFeedback = error.error.message
           }
         })
     }

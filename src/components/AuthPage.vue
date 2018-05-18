@@ -12,8 +12,8 @@
 
     <b-row align-h="center">
       <b-col cols="6">
-        <sign-in-form v-if="wantSignIn" @swap-form="swapForm" @sign-in="$emit('sign-in')"/>
-        <sign-up-form v-else @swap-form="swapForm"/>
+        <sign-in-form v-if="wantSignIn" @swap-form="swapForm" @sign-in="$emit('sign-in')" @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
+        <sign-up-form v-else @swap-form="swapForm" @sign-in="$emit('sign-in')" @async-start="$emit('async-start')" @async-end="$emit('async-end')"/>
       </b-col>
     </b-row>
   </b-container>
