@@ -34,9 +34,9 @@ yarn deploy
 
 ## Remarks for building Vue app with Skygear
 
-* Rename the `build` directory to `public_html` after building
-
-(This app has already been properly configured, see script.deploy in package.json)
+* Rename the `dist` directory to `public_html` after building (This app has already been properly configured, see script.deploy in package.json)
+* See .skyignore if you only want to push production code up to Skygear like this app
+* Append /public_html in .gitignore to ignore production code
 
 ## Notes
 * This app shares the same backend with react-dinnerpoll
