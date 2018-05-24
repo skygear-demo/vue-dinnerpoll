@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-progress v-show="asyncState" :value="100" variant="primary" striped animated></b-progress>
+    <b-progress class="fixed-top" v-show="asyncState" :value="100" variant="primary" striped animated></b-progress>
     <b-container v-if="!signedIn">
       <b-row align-v="center" style="min-height: 100vh;">
           <b-col>
