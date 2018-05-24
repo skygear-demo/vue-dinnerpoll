@@ -4,11 +4,11 @@
     <b-container v-if="!signedIn">
       <b-row align-v="center" style="min-height: 100vh;">
           <b-col>
-            <auth-page @sign-in="signIn" @async-start="onAsyncStart" @async-end="onAsyncEnd"/>
+            <auth-page @sign-in="signedIn = true" @async-start="asyncState = true" @async-end="asyncState = false"/>
           </b-col>
       </b-row>
     </b-container>
-    <main-page v-else @sign-out="signOut" @async-start="onAsyncStart" @async-end="onAsyncEnd"/>
+    <main-page v-else @sign-out="signedIn = false" @async-start="asyncState = true" @async-end="asyncState = false"/>
   </div>
 </template>
 
@@ -21,21 +21,7 @@ export default {
   data () {
     return {
       asyncState: false,
-      signedIn: false || skygear.auth.currentUser
-    }
-  },
-  methods: {
-    signIn () {
-      this.signedIn = true
-    },
-    signOut () {
-      this.signedIn = false
-    },
-    onAsyncStart () {
-      this.asyncState = true
-    },
-    onAsyncEnd () {
-      this.asyncState = false
+      signedIn: skygear.auth.currentUser || false
     }
   },
   components: {

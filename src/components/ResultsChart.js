@@ -5,11 +5,11 @@ const { reactiveData } = mixins
 
 export default {
   extends: Bar,
-  mixins: [reactiveData],
+  mixins: [reactiveData], // will create data.chartData
   data () {
     return {
       options: {
-        maintainAspectRatio: false,
+        maintainAspectRatio: false, // required for vue-chartjs in vue-dinnerpoll but not for native chartjs in react-dinnerpoll for better outlook
         legend: {
           display: false
         },

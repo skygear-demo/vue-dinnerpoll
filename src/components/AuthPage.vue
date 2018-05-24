@@ -2,7 +2,7 @@
   <b-container>
     <b-row align-h="center" align-v="center">
       <b-col cols="2">
-        <b-img class="p-3" src="../assets/logo.png" fluid alt="hi"/>
+        <b-img class="p-3" src="../assets/logo.png" fluid alt="logo"/>
       </b-col>
       <b-col cols="4">
         <h1>What's for dinner?</h1>

@@ -3,7 +3,7 @@
     <b-form-group>
       <b-form-radio-group v-model="selectedDish">
         <b-card-group deck>
-          <b-card v-for="(dish, index) in dishes" :key="index" class="text-center" :title="dish.name">
+          <b-card class="text-center" v-for="(dish, index) in dishes" :key="index" :title="dish.name">
             <p class="card-text">
               {{dish.description}}
             </p>
@@ -49,8 +49,8 @@ export default {
   methods: {
     vote () {
       if (this.selectedDish) {
-        const Vote = skygear.Record.extend('vote')
         this.$emit('async-start')
+        const Vote = skygear.Record.extend('vote')
         skygear.publicDB.save(new Vote({
           dish: this.selectedDish
         }))
@@ -62,7 +62,10 @@ export default {
           })
           .catch(error => {
             console.error(error)
+            alert(error)
           })
+      } else {
+        alert('Please select one dish to vote!')
       }
     }
   }

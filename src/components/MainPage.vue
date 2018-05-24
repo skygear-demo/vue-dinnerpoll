@@ -42,12 +42,7 @@ export default {
         })
         .catch(({ error }) => {
           console.error(error)
-          this.setState({
-            event: {
-              type: 'error',
-              message: error.message
-            }
-          })
+          alert(error.error.message)
         })
     }
   }
