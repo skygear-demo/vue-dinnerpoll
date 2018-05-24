@@ -9,6 +9,7 @@ export default {
   data () {
     return {
       options: {
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
@@ -29,11 +30,11 @@ export default {
     }
   },
   mounted () {
-    this.refresh().then(() => {
-      this.renderChart(this.chartData, this.options)
-    })
+    this.renderChart(this.chartData, this.options)
 
-    skygear.pubsub.on('vote', this.refresh)
+    this.refresh().then(() => {
+      skygear.pubsub.on('vote', this.refresh)
+    })
   },
   methods: {
     refresh () {
