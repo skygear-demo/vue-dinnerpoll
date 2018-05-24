@@ -1,21 +1,43 @@
-# vue-dinnerpoll
+# Dinner poll
 
-> A Vue.js project
+A serverless polling web app using [Skygear](https://skygear.io/) as cloud database. https://vuedinnerpoll.skygeario.com/static/
 
-## Build Setup
+Skygear features demonstrated:
 
-``` bash
-# install dependencies
-npm install
+* User Authentication: Sign in/up/out
+* Cloud Database
+  * Basic CRUD: CRUD a vote
+* PubSub: Hot reloading when others voted
+* Cloud Functions
+  * Raw SQL execution
+  * Trigger by Client SDK
+    * `op` in JS cloud code (index.js)
+    * `lambda` in JS SDK (ResultsChart.js)
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Quick start
 
-# build for production with minification
-npm run build
+Development:
 
-# build for production and view the bundle analyzer report
-npm run build --report
+```bash
+git clone https://github.com/skygear-demo/vue-dinnerpoll.git
+cd vue-dinnerpoll
+yarn install # npm install, if you are using npm
+yarn start
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Deploying:
+
+```bash
+yarn build
+yarn deploy
+```
+
+## Remarks for building Vue app with Skygear
+
+* Rename the `build` directory to `public_html` after building
+
+(This app has already been properly configured, see script.deploy in package.json)
+
+## Notes
+* This app shares the same backend with react-dinnerpoll
+* But the static front-end files are hosted in vue-dinnerpoll
